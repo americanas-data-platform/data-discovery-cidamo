@@ -1,9 +1,12 @@
-from loader.base_loader import BaseLoader
+import json
+import requests
+from src.loader.base_loader import BaseLoader
 import copy as cp
 import numpy as np
 
+
 class DictLoader(BaseLoader):
-    def __init__(self, self, param_dict: dict) -> None:
+    def __init__(self, param_dict: dict) -> None:
         self.param_dict = param_dict
 
     def dict_loader(self, param_array_general: dict, param_array_numbers: dict, param_array_cat: dict):
@@ -35,3 +38,22 @@ class DictLoader(BaseLoader):
                 dict_loader[key]['max_value'] = param_array_numbers[key]['max_value']
 
         return dict_loader
+
+
+class GeneralLoader(BaseLoader):
+    def __init__(self, param_dict: dict, metadata_dict: dict) -> None:
+        self.param_dict = param_dict
+        self.metadata_dict = metadata_dict
+
+    def load(self) -> bytes:
+        url = self.param_dict['publisher_api_url']
+        headers = {'content-type': "application/json"}
+        payload = json.dumps(self.metadata_dict)
+        try:
+            res = requests.post(url, data=payload, headers=headers)
+        except requests.exceptions.ConnectionError as e:
+            return str(e)
+        except:
+            return "Undefined error"
+        return res
+
