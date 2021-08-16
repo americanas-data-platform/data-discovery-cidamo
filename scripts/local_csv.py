@@ -8,7 +8,7 @@ from src.task.task import Task
 
 param_dict = {
     "filepath": "/home/leofernanndes/dev/geral/data-discovery-cidamo/data/olist_order_items_dataset.csv",
-    "publisher_api_url": "http://localhost:5000/discovery/"
+    "publisher_api_url": "http://localhost:8000/v1/"
 }
 
 task = Task(param_dict)

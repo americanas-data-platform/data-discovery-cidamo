@@ -45,15 +45,16 @@ class GeneralLoader(BaseLoader):
         self.param_dict = param_dict
         self.metadata_dict = metadata_dict
 
-    def load(self) -> bytes:
+    def load(self) -> str:
         url = self.param_dict['publisher_api_url']
         headers = {'content-type': "application/json"}
         payload = json.dumps(self.metadata_dict)
         try:
             res = requests.post(url, data=payload, headers=headers)
+            res = str(res.content)
         except requests.exceptions.ConnectionError as e:
-            return str(e)
+            return 'Failed to establish a new connection: [Errno 111] Connection refused.'
         except:
-            return "Undefined error"
+            return "Unexpected error"
         return res
 
