@@ -1,8 +1,8 @@
 import pandas as pd
-from src.transformer.base_transformer import BaseTransformer
-from src.transformer.aggregation_functions.categorical import describe_categorical
-from src.transformer.aggregation_functions.continuous import describe_continuous, describe_datetime
-from src.transformer.aggregation_functions.discrete import describe_discrete
+from data_quality.src.transformer.base_transformer import BaseTransformer
+from data_quality.src.transformer.aggregation_functions.categorical import describe_categorical
+from data_quality.src.transformer.aggregation_functions.continuous import describe_continuous, describe_datetime
+from data_quality.src.transformer.aggregation_functions.discrete import describe_discrete
 
 
 class GeneralTransformer(BaseTransformer):

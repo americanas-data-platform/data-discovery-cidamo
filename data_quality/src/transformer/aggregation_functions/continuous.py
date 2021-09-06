@@ -1,5 +1,4 @@
-import datetime
-from src.transformer.aggregation_functions.general import describe_general
+from data_quality.src.transformer.aggregation_functions.general import describe_general
 import pandas as pd
 
 

@@ -1,6 +1,7 @@
-from src.extractor.csv_extractor import CsvExtractor
-from src.transformer.general_transformer import GeneralTransformer
-from src.loader.general_loader import GeneralLoader
+from data_quality.src.extractor.csv_extractor import CsvExtractor
+from data_quality.src.transformer.general_transformer import GeneralTransformer
+from data_quality.src.loader.general_loader import GeneralLoader
+
 
 class Task:
     def __init__(self, param_dict: dict) -> None:

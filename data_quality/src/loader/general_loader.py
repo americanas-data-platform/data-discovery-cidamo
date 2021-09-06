@@ -1,6 +1,6 @@
 import json
 import requests
-from src.loader.base_loader import BaseLoader
+from data_quality.src.loader.base_loader import BaseLoader
 import copy as cp
 import numpy as np
 

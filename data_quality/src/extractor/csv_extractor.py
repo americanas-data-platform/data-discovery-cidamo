@@ -1,4 +1,4 @@
-from src.extractor.base_extractor import BaseExtractor
+from data_quality.src.extractor.base_extractor import BaseExtractor
 import pandas as pd
 
 
