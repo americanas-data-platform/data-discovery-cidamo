@@ -34,6 +34,7 @@ To check a complete list of project's dependencies check requirements.txt
 2. Check if there is any process running on TCP 80
 3. We are using docker to package and deliver the source code, so in order to launch a local server you must use ``` docker-compose up --build```
 
+To use and use test scripts like those described in data_quality/scripts, go to the root of the project and call ```python -m data_quality.scripts.{SCRIPT_NAME}``` like ```python -m data_quality.scripts.local_csv```
 
 ## License
 
