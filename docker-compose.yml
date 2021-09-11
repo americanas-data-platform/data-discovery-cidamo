@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+      - nginx_network
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src
+    ports:
+      - 8000
+    deploy:
+      replicas: 1
+    depends_on:
+      - mongo
+    networks:
+      - nginx_network
+
+  nginx:
+    image: nginx:1.15-alpine
+    restart: unless-stopped
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/logs/:/var/log/nginx/
+    ports:
+      - 80:80
+    depends_on:
+      - api
+      - mongo
+    networks:
+      - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge
