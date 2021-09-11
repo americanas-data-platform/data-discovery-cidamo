@@ -9,8 +9,11 @@ Build an application that summarize a dataset, showing basic statistics (for e.g
 
 The following diagram shows the overall architecture for the project.
 
-The project is composed by a data quality job package written in python responsible for gettin a summary of datasets
-features, an api written using Fast api and a Mongo db for persistence.
+The project is composed by:
+- a Data Quality Job package written in Python responsible for getting a summary of Datasets;
+- a MongoDB Atlas used as persistence to store Datasets' metrics;
+- a API developed using FastAPI, a Python web framework;
+- a frontend built with ReactJS to show all the metadata extracted from Datasets. 
 
 ![Architecture](data_quality/images/architecture.png)
 
