@@ -4,6 +4,5 @@ from data_quality.src.transformer.aggregation_functions.general import describe_
 
 def describe_categorical(serie: pd.Series) -> dict:
     describe_dict = describe_general(serie)
-    # describe_dict["unique_values"] = list(serie.unique())
     return describe_dict
 
