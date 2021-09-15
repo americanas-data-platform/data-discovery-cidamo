@@ -18,21 +18,27 @@ def summary_helper(summary) -> dict:
         parsed_summary[key] = value
     return parsed_summary
 
-async def add_summary(student_data: dict) -> dict:
-    student = await data_quality_collection.insert_one(student_data)
-    new_student = await data_quality_collection.find_one({"_id": student.inserted_id})
-    return summary_helper(new_student)
+async def add_summary(summary_data: dict) -> dict:
+    summary = await data_quality_collection.insert_one(summary_data)
+    new_summary = await data_quality_collection.find_one({"_id": summary.inserted_id})
+    return summary_helper(new_summary)
 
 async def retrieve_summaries() -> list:
-    students = []
-    async for student in data_quality_collection.find():
-        students.append(summary_helper(student))
-    return students
+    summaries = []
+    async for summary in data_quality_collection.find():
+        summaries.append(summary_helper(summary))
+    return summaries
 
 async def retrieve_summary(id: str) -> dict:
-    student = await data_quality_collection.find_one({"_id": ObjectId(id)})
-    if student:
-        return summary_helper(student)
+    summary = await data_quality_collection.find_one({"_id": ObjectId(id)})
+    if summary:
+        return summary_helper(summary)
+
+
+async def update_summary(id: str, summary_data: dict) -> dict:
+    await data_quality_collection.replace_one({"_id": ObjectId(id)}, summary_data)
+    updated_summary = await data_quality_collection.find_one({"_id": ObjectId(id)})
+    return summary_helper(updated_summary)
 
 
 async def delete_summaries() -> dict:
