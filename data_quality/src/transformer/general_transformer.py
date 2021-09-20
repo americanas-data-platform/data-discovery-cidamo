@@ -28,16 +28,3 @@ class GeneralTransformer(BaseTransformer):
             if self.dataframe[feature].dtype in ('int', 'int32', 'int64'):
                 metadata_dict['discrete_features'].append(describe_discrete(self.dataframe[feature]))
         return metadata_dict
-
-        # for feature in self.dataframe.columns:
-        #     if self.dataframe[feature].dtype in ('object',):
-        #         try:
-        #             datetime_serie = pd.to_datetime(self.dataframe[feature])
-        #             metadata_dict[feature] = describe_datetime(datetime_serie)
-        #         except Exception as e:
-        #             metadata_dict[feature] = describe_categorical(self.dataframe[feature])
-        #     if self.dataframe[feature].dtype in ('float', 'float32', 'float64'):
-        #         metadata_dict[feature] = describe_continuous(self.dataframe[feature])
-        #     if self.dataframe[feature].dtype in ('int', 'int32', 'int64'):
-        #         metadata_dict[feature] = describe_discrete(self.dataframe[feature])
-        return metadata_dict

@@ -28,6 +28,7 @@ class DateTimeFeatureSummary(CategoricalFeatureSummary):
     max: str
 
 class DataSummary(BaseModel):
+    filename: str
     categorical_features: List[CategoricalFeatureSummary]
     discrete_features: List[DiscreteFeatureSummary]
     continuous_features: List[ContinuousFeatureSummary]
@@ -54,19 +55,17 @@ async def get_all_summaries():
     summaries = await retrieve_summaries()
     if summaries:
         return summaries
-    return {"detail": "Not found."}
+    raise fastapi.HTTPException(detail="Not found.", status_code=404)
 
 @router.get("/{id}")
 async def get_summary_by_id(id):
-    validate_objectid(id)
     summary = await retrieve_summary(id)
     if summary:
         return summary
-    return {"detail": "Not found."}
+    raise fastapi.HTTPException(detail="Not found.", status_code=404)
 
 @router.put("/{id}")
 async def update_summary_data(id: str, data_summary: DataSummary):
-    validate_objectid(id)
     summary = jsonable_encoder(data_summary)
     updated_summary = await update_summary(id, summary)
     if updated_summary:
@@ -76,4 +75,4 @@ async def update_summary_data(id: str, data_summary: DataSummary):
 @router.post("/delete-all")
 async def delete_all_summaries():
     await delete_summaries()
-    return {"detail": "No content."}
+    raise fastapi.HTTPException(detail="Not found.", status_code=404)
