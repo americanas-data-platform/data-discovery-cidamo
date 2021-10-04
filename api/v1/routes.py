@@ -3,13 +3,13 @@ from pydantic import BaseModel
 from typing import List
 from bson.objectid import ObjectId
 from fastapi.encoders import jsonable_encoder
-from api.v1.database import add_summary, retrieve_summaries, retrieve_summary, delete_summaries, update_summary
+from api.v1.database import add_summary, retrieve_summaries, retrieve_summary, delete_summaries, update_summary, delete_summary
 
 
 class CategoricalFeatureSummary(BaseModel):
     name: str
     size: str
-    nan_count: int
+    na_count: int
     top10: List[str]
     down10: List[str]
     count_top10: dict
@@ -46,20 +46,14 @@ class DataSummary(BaseModel):
     datetime_features: List[DateTimeFeatureSummary]
 
 
-def validate_objectid(id):
-    try:
-        ObjectId(id)
-    except:
-        raise fastapi.HTTPException(detail="Id is not a valid ObjectId.", status_code=422)
-
-
 router = fastapi.APIRouter()
 
 @router.post('/')
 async def post_summary(data_summary: DataSummary):
     summary = jsonable_encoder(data_summary)
     new_summary = await add_summary(summary)
-    return new_summary
+    return fastapi.responses.JSONResponse(new_summary, status_code=201)
+
 
 @router.get("/")
 async def get_all_summaries():
@@ -68,6 +62,7 @@ async def get_all_summaries():
         return summaries
     raise fastapi.HTTPException(detail="Not found.", status_code=404)
 
+
 @router.get("/{id}")
 async def get_summary_by_id(id):
     summary = await retrieve_summary(id)
@@ -75,15 +70,23 @@ async def get_summary_by_id(id):
         return summary
     raise fastapi.HTTPException(detail="Not found.", status_code=404)
 
+
 @router.put("/{id}")
-async def update_summary_data(id: str, data_summary: DataSummary):
+async def update_summary_by_id(id: str, data_summary: DataSummary):
     summary = jsonable_encoder(data_summary)
     updated_summary = await update_summary(id, summary)
     if updated_summary:
         return updated_summary
     return {"detail": "Not found."}
 
-@router.post("/delete-all")
+
+@router.delete("/")
 async def delete_all_summaries():
     await delete_summaries()
-    raise fastapi.HTTPException(detail="Not found.", status_code=404)
+    return fastapi.responses.JSONResponse({'detail': 'No content'}, status_code=204)
+
+
+@router.delete("/{id}")
+async def delete_summary_by_id(id: str):
+    await delete_summary(id)
+    return fastapi.responses.JSONResponse({'detail': 'No content'}, status_code=204)
