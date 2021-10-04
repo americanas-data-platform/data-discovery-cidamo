@@ -5,13 +5,20 @@ from bson.objectid import ObjectId
 from fastapi.encoders import jsonable_encoder
 from api.v1.database import add_summary, retrieve_summaries, retrieve_summary, delete_summaries, update_summary
 
+
 class CategoricalFeatureSummary(BaseModel):
     name: str
     size: str
     nan_count: int
+    top10: List[str]
+    down10: List[str]
+    count_top10: dict
+    count_down10: dict
+
 
 class DiscreteFeatureSummary(CategoricalFeatureSummary):
     unique_values: List[int]
+
 
 class ContinuousFeatureSummary(CategoricalFeatureSummary):
     min: float
@@ -19,6 +26,8 @@ class ContinuousFeatureSummary(CategoricalFeatureSummary):
     quantile_50: float
     quantile_75: float
     max: float
+    histogram: dict
+
 
 class DateTimeFeatureSummary(CategoricalFeatureSummary):
     min: str
@@ -26,6 +35,8 @@ class DateTimeFeatureSummary(CategoricalFeatureSummary):
     quantile_50: str
     quantile_75: str
     max: str
+    histogram: dict
+
 
 class DataSummary(BaseModel):
     filename: str
