@@ -4,7 +4,7 @@ import pandas as pd
 def describe_histogram(serie: pd.Series) -> dict:
     df_temp = serie.value_counts(bins=15, sort = False).to_frame().reset_index()
     df_temp.columns = ['value', 'value_counts']
-    df_temp['LeftEnd'] = df_aux['value'].apply(lambda x: x.left)
+    df_temp['LeftEnd'] = df_temp['value'].apply(lambda x: x.left)
     df_temp = df_temp[['LeftEnd', 'value_counts']]
     if df_temp.LeftEnd.dtype == 'datetime64[ns]':
         df_temp.LeftEnd = df_temp.LeftEnd.astype('string')
