@@ -1,5 +1,6 @@
 import pandas as pd
-from data_quality.src.transformer.aggregation_functions.general import describe_general
+from data_quality.src.transformer.aggregation_functions.general import describe_general, describe_histogram
+
 
 
 def describe_discrete(serie: pd.Series) -> dict:

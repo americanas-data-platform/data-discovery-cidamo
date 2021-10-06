@@ -1,4 +1,5 @@
 import fastapi
+from numpy import histogram
 from pydantic import BaseModel
 from typing import List
 from bson.objectid import ObjectId
@@ -6,9 +7,10 @@ from fastapi.encoders import jsonable_encoder
 from api.v1.database import add_summary, retrieve_summaries, retrieve_summary, delete_summaries, update_summary, delete_summary
 
 
-class CategoricalFeatureSummary(BaseModel):
+class GeneralFeatureSummary(BaseModel):
     name: str
     size: str
+    type: str
     na_count: int
     top10: List[str]
     down10: List[str]
@@ -16,11 +18,17 @@ class CategoricalFeatureSummary(BaseModel):
     count_down10: dict
 
 
-class DiscreteFeatureSummary(CategoricalFeatureSummary):
-    unique_values: List[int]
+class CategoricalFeatureSummary(GeneralFeatureSummary):
+    mode: List[str]
+    
+
+class DiscreteFeatureSummary(GeneralFeatureSummary):
+    min: int
+    max: int
+    histogram: dict
 
 
-class ContinuousFeatureSummary(CategoricalFeatureSummary):
+class ContinuousFeatureSummary(GeneralFeatureSummary):
     min: float
     quantile_25: float
     quantile_50: float
@@ -29,7 +37,7 @@ class ContinuousFeatureSummary(CategoricalFeatureSummary):
     histogram: dict
 
 
-class DateTimeFeatureSummary(CategoricalFeatureSummary):
+class DateTimeFeatureSummary(GeneralFeatureSummary):
     min: str
     quantile_25: str
     quantile_50: str
