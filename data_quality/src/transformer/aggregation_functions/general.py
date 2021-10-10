@@ -1,4 +1,5 @@
 import pandas as pd
+import json
 
 def describe_list10(serie: pd.Series, choose: str, count: bool) -> dict:
     if serie.dtype == "datetime64[ns]":
@@ -14,8 +15,12 @@ def describe_list10(serie: pd.Series, choose: str, count: bool) -> dict:
     else:    
         return describe_dict
 
+
 def describe_histogram(serie: pd.Series) -> dict:
-    df_temp = serie.value_counts(bins=15, sort = False).to_frame().reset_index()
+    serie = serie.dropna()
+    if not list(serie.dropna()):
+        return {}
+    df_temp = serie.value_counts(bins=15, sort=False).to_frame().reset_index()
     df_temp.columns = ['value', 'value_counts']
     df_temp['LeftEnd'] = df_temp['value'].apply(lambda x: x.left)
     df_temp = df_temp[['LeftEnd', 'value_counts']]
@@ -24,6 +29,7 @@ def describe_histogram(serie: pd.Series) -> dict:
 
     describe_dict = df_temp.set_index('LeftEnd').to_dict()
     return describe_dict
+
 
 def describe_general(serie: pd.Series) -> dict:
     describe_dict = {

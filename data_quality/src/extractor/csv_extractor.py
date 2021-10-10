@@ -10,7 +10,7 @@ class CsvExtractor(BaseExtractor):
         if not self.param_dict.get('filepath', None):
             raise ValueError("Param dict must contain a filepath")
         try:
-            data = pd.read_csv(self.param_dict.get("filepath"))
+            data = pd.read_csv(self.param_dict.get("filepath"), low_memory=False)
         except Exception as e:
             raise e
         return data

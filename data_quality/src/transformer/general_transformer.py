@@ -15,8 +15,12 @@ class GeneralTransformer(BaseTransformer):
         metadata_dict['discrete_features'] = []
         metadata_dict['continuous_features'] = []
         metadata_dict['datetime_features'] = []
+        metadata_dict['null_features'] = []
 
         for feature in self.dataframe.columns:
+            if self.dataframe[feature].isnull().sum() == len(list(self.dataframe[feature])):
+                metadata_dict['null_features'].append(feature)
+                continue
             if self.dataframe[feature].dtype in ('object',):
                 try:
                     datetime_serie = pd.to_datetime(self.dataframe[feature])

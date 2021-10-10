@@ -52,6 +52,7 @@ class DataSummary(BaseModel):
     discrete_features: List[DiscreteFeatureSummary]
     continuous_features: List[ContinuousFeatureSummary]
     datetime_features: List[DateTimeFeatureSummary]
+    null_features: List[str]
 
 
 router = fastapi.APIRouter()
@@ -91,10 +92,10 @@ async def update_summary_by_id(id: str, data_summary: DataSummary):
 @router.delete("/")
 async def delete_all_summaries():
     await delete_summaries()
-    return fastapi.responses.JSONResponse({'detail': 'No content'}, status_code=204)
+    return fastapi.responses.Response(status_code=204)
 
 
 @router.delete("/{id}")
 async def delete_summary_by_id(id: str):
     await delete_summary(id)
-    return fastapi.responses.JSONResponse({'detail': 'No content'}, status_code=204)
+    return fastapi.responses.Response(status_code=204)
