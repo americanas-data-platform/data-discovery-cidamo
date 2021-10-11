@@ -11,6 +11,8 @@ class Task:
         df = CsvExtractor(self.param_dict).extract()
         transformer = GeneralTransformer(df)
         metadata_dict = transformer.transform()
+        metadata_dict['filename'] = self.param_dict['filepath'].split("/")[-1]
+        print(metadata_dict)
         loader = GeneralLoader(param_dict=self.param_dict, metadata_dict=metadata_dict)
         response = loader.load()
         return response
