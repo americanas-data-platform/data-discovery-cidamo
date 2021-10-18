@@ -44,9 +44,6 @@ class DateTimeFeatureSummary(GeneralFeatureSummary):
     quantile_75: str
     max: str
     histogram: dict
-
-class CategoricalFeatureSummary(GeneralFeatureSummary):
-    mode: List[str]
     
 class DataSummary(BaseModel):
     filename: str
