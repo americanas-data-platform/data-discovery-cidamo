@@ -12,8 +12,8 @@ class GeneralFeatureSummary(BaseModel):
     size: str
     type: str
     na_count: int
-    top10: List[str]
-    down10: List[str]
+    #top10: List[str]
+    #down10: List[str]
     count_top10: dict
     count_down10: dict
 
@@ -45,13 +45,16 @@ class DateTimeFeatureSummary(GeneralFeatureSummary):
     max: str
     histogram: dict
 
-
+class CategoricalFeatureSummary(GeneralFeatureSummary):
+    mode: List[str]
+    
 class DataSummary(BaseModel):
     filename: str
     categorical_features: List[CategoricalFeatureSummary]
     discrete_features: List[DiscreteFeatureSummary]
     continuous_features: List[ContinuousFeatureSummary]
     datetime_features: List[DateTimeFeatureSummary]
+    bool_features: List[CategoricalFeatureSummary]
     null_features: List[str]
 
 

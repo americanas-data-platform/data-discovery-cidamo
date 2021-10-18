@@ -37,8 +37,8 @@ def describe_general(serie: pd.Series) -> dict:
         "size": str(serie.size),
         "type": str(serie.dtype),
         "na_count": int(serie.isnull().sum()),
-        "top10": describe_list10(serie, 'top', False),
-        "down10": describe_list10(serie, 'down', False),
+        #"top10": describe_list10(serie, 'top', False),
+        #"down10": describe_list10(serie, 'down', False),
         "count_top10": describe_list10(serie, 'top', True),
         "count_down10": describe_list10(serie, 'down', True)
     }
