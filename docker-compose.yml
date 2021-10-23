@@ -29,7 +29,7 @@ services:
     image: nginx:1.15-alpine
     restart: unless-stopped
     volumes:
-      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/logs/:/var/log/nginx/
     ports:
       - 80:80
