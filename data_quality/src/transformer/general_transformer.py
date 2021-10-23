@@ -15,6 +15,7 @@ class GeneralTransformer(BaseTransformer):
         metadata_dict['discrete_features'] = []
         metadata_dict['continuous_features'] = []
         metadata_dict['datetime_features'] = []
+        metadata_dict['bool_features'] = []
         metadata_dict['null_features'] = []
 
         for feature in self.dataframe.columns:
@@ -31,4 +32,6 @@ class GeneralTransformer(BaseTransformer):
                 metadata_dict['continuous_features'].append(describe_continuous(self.dataframe[feature]))
             if self.dataframe[feature].dtype in ('int', 'int32', 'int64'):
                 metadata_dict['discrete_features'].append(describe_discrete(self.dataframe[feature]))
+            if self.dataframe[feature].dtype in ('bool'):
+                metadata_dict['bool_features'].append(describe_categorical(self.dataframe[feature]))
         return metadata_dict
