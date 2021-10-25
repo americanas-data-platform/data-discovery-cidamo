@@ -14,6 +14,7 @@ COPY requirements.txt ./
 # install dependencies
 RUN pip install -r /usr/src/requirements.txt
 RUN python -m pip install pymongo[srv]
+RUN python -m pip install --upgrade 'google-cloud-bigquery[bqstorage,pandas]'
 
 # copy project
 COPY . .
