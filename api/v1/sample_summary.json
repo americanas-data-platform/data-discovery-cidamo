@@ -1,0 +1,194 @@
+{
+    "filename": "olist_customers_dataset.csv",
+    "categorical_features": [
+        {
+        "name": "customer_id",
+        "size": "99441",
+        "type": "object",
+        "na_count": 0,
+        "count_top10": {
+            "06b8999e2fba1a1fbc88172c00ba8bc7": 1,
+            "c023f30c1147aeb0358474f3b1dbc707": 1,
+            "b5cbf43f42281920a175fc99650c91d6": 1,
+            "19f4e983f8f05b7de16670f8a0cf0ac7": 1,
+            "229ac14c6ee6d6a606264ebcc861beb7": 1,
+            "8cd118ecfb9703463ef9670b1d18a26e": 1,
+            "8b7369c82ac3d8d71b77d5b23b085696": 1,
+            "4b7decb9b58e2569548b8b4c8e20e8d7": 1,
+            "a30378a29ac174b9a1a158ce067e1fd2": 1,
+            "1d99b48c0fe6d0bc50feebecdc88cbc2": 1
+        },
+        "count_down10": {
+            "eefb7035ce3a063fae6c1a9979365689": 1,
+            "1d404a3fed19ccf4bb7fc225643848b6": 1,
+            "8485ad7b186ad4ddf28eb66db67b2aac": 1,
+            "21e69ff635b0200760b86b80ed80e7f1": 1,
+            "8d0ac85590ac364947222f448469095c": 1,
+            "31665bd5bc542687ab54c9fd9ed9917b": 1,
+            "37fb9cce079a4887c96b59bae2011d05": 1,
+            "1d815f3ad9b2017b6da2c4f1cbb1180b": 1,
+            "6b05c8f3a25a71005d5eb9b51766c333": 1,
+            "274fa6071e5e17fe303b9748641082c8": 1
+        },
+        "mode": [
+            "00012a2ce6f8dcda20d059ce98491703"
+        ]
+        },
+        {
+        "name": "customer_unique_id",
+        "size": "99441",
+        "type": "object",
+        "na_count": 0,
+        "count_top10": {
+            "8d50f5eadf50201ccdcedfb9e2ac8455": 17,
+            "3e43e6105506432c953e165fb2acf44c": 9,
+            "1b6c7548a2a1f9037c1fd3ddfed95f33": 7,
+            "ca77025e7201e3b30c44b472ff346268": 7,
+            "6469f99c1f9dfae7733b25662e7f1782": 7,
+            "63cfc61cee11cbe306bff5857d00bfe4": 6,
+            "47c1a3033b8b77b3ab6e109eb4d5fdf3": 6,
+            "12f5d6e1cbf93dafd9dcc19095df0b3d": 6,
+            "de34b16117594161a6a89c50b289d35a": 6,
+            "dc813062e0fc23409cd255f7f53c7074": 6
+        },
+        "count_down10": {
+            "4f83c83b7ff5b544a8c75dcb8ad66e2e": 1,
+            "211e4234ffca5cec9b0ab183a1009256": 1,
+            "3256049f46589ca9ddb1dd86043f3948": 1,
+            "b79939e7b655e75d48b325c460ea66e2": 1,
+            "5b5c96a57b90dd238dd79f6079021707": 1,
+            "081f07439678af2da7755a0aa572154d": 1,
+            "9c57789a6a587f4efcfb01e36c106014": 1,
+            "9e4c21635f640562de1a6976374fba03": 1,
+            "06c0ea6ee892364d1608ee47aa9f56a0": 1,
+            "84732c5050c01db9b23e19ba39899398": 1
+        },
+        "mode": [
+            "8d50f5eadf50201ccdcedfb9e2ac8455"
+        ]
+        },
+        {
+        "name": "customer_city",
+        "size": "99441",
+        "type": "object",
+        "na_count": 0,
+        "count_top10": {
+            "sao paulo": 15540,
+            "rio de janeiro": 6882,
+            "belo horizonte": 2773,
+            "brasilia": 2131,
+            "curitiba": 1521,
+            "campinas": 1444,
+            "porto alegre": 1379,
+            "salvador": 1245,
+            "guarulhos": 1189,
+            "sao bernardo do campo": 938
+        },
+        "count_down10": {
+            "machadinho": 1,
+            "divino das laranjeiras": 1,
+            "galia": 1,
+            "lagoa de sao francisco": 1,
+            "uniao da serra": 1,
+            "bequimao": 1,
+            "andarai": 1,
+            "vargem grande": 1,
+            "curvelandia": 1,
+            "eugenio de castro": 1
+        },
+        "mode": [
+            "sao paulo"
+        ]
+        },
+        {
+        "name": "customer_state",
+        "size": "99441",
+        "type": "object",
+        "na_count": 0,
+        "count_top10": {
+            "SP": 41746,
+            "RJ": 12852,
+            "MG": 11635,
+            "RS": 5466,
+            "PR": 5045,
+            "SC": 3637,
+            "BA": 3380,
+            "DF": 2140,
+            "ES": 2033,
+            "GO": 2020
+        },
+        "count_down10": {
+            "PI": 495,
+            "RN": 485,
+            "AL": 413,
+            "SE": 350,
+            "TO": 280,
+            "RO": 253,
+            "AM": 148,
+            "AC": 81,
+            "AP": 68,
+            "RR": 46
+        },
+        "mode": [
+            "SP"
+        ]
+        }
+    ],
+    "discrete_features": [
+        {
+        "name": "customer_zip_code_prefix",
+        "size": "99441",
+        "type": "int64",
+        "na_count": 0,
+        "count_top10": {
+            "13212": 95,
+            "22631": 89,
+            "22775": 110,
+            "22790": 142,
+            "22793": 121,
+            "24220": 124,
+            "24230": 117,
+            "29101": 101,
+            "35162": 93,
+            "38400": 87
+        },
+        "count_down10": {
+            "12442": 1,
+            "29904": 1,
+            "35698": 1,
+            "39817": 1,
+            "41210": 1,
+            "60876": 1,
+            "64808": 1,
+            "96425": 1,
+            "99043": 1,
+            "99370": 1
+        },
+        "min": 1003,
+        "max": 99990,
+        "histogram": {
+            "value_counts": {
+            "904.0120000000001": 18579,
+            "7602.133": 16720,
+            "14201.267": 7987,
+            "20800.4": 9403,
+            "27399.533": 7784,
+            "33998.667": 8238,
+            "40597.8": 2365,
+            "47196.933": 1696,
+            "53796.067": 2609,
+            "60395.2": 2722,
+            "66994.333": 3152,
+            "73593.467": 4212,
+            "80192.6": 4043,
+            "86791.733": 6347,
+            "93390.867": 3584
+            }
+        }
+        }
+    ],
+    "continuous_features": [],
+    "datetime_features": [],
+    "bool_features": [],
+    "null_features": []
+}

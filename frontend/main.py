@@ -15,9 +15,11 @@ st.set_page_config(
 # Coletando o nome de todos os datasets
 base_url = "http://nginx/api/v1/summaries"
 req = requests.get(base_url)
-json_data = req.json()
-
-print(req)
+if req.status_code == 200:
+  json_data = req.json()
+else:
+  requests.get(f'{base_url}/seed')
+  json_data = req.json()
 
 lista_datasets = []
 for k in range(len(json_data)):

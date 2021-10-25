@@ -1,10 +1,15 @@
+import os
+import json
 import fastapi
+from pathlib import Path
 from numpy import histogram
 from pydantic import BaseModel
 from typing import List
 from bson.objectid import ObjectId
 from fastapi.encoders import jsonable_encoder
 from api.v1.database import add_summary, retrieve_summaries, retrieve_summary, delete_summaries, update_summary, delete_summary
+from data_quality.src.extractor.bigquery_extractor import BigQueryExtractor
+from data_quality.src.transformer.general_transformer import GeneralTransformer
 
 
 class GeneralFeatureSummary(BaseModel):
@@ -56,6 +61,16 @@ class DataSummary(BaseModel):
 
 
 router = fastapi.APIRouter()
+
+@router.get('/seed')
+async def seed_sample_summary():   
+    SAMPLE_SUMMARY_PATH = Path(__file__).resolve().parent
+    with open(f'{SAMPLE_SUMMARY_PATH}/sample_summary.json') as f:
+        data_summary = json.load(f)
+        summary = jsonable_encoder(data_summary)
+        new_summary = await add_summary(summary)
+    return fastapi.responses.JSONResponse({'detail': 'Seed ok'}, status_code=200)
+
 
 @router.post('/')
 async def post_summary(data_summary: DataSummary):
