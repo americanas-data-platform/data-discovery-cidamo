@@ -274,7 +274,7 @@ def comparation_values(lista1, lista2, coluna1, coluna2, col1, col2):
 
   col1.markdown("#### Correlação (Top 10)")
   corr = co.corr()
-  col1.dataframe(corr.style.highlight_max(axis=0, color='#A3CEF9'))
+  col1.dataframe(corr.style.highlight_min(axis=0, color = "#A3CEF9"))
   col1.markdown("##")
 
   col2.markdown("#### Covariância (Top 10)")

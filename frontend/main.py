@@ -8,7 +8,7 @@ from pages.comparation import comparation
 from pages.about import about
 
 st.set_page_config( 
-    page_title = 'Data Quality',
+    page_title = 'Data Discovery',
     page_icon = '✅',
     layout = 'wide'
 )
@@ -30,16 +30,26 @@ page = st.sidebar.radio("Selecione a página",["Introdução", "Data Quality", "
 
 
 if page == "Introdução":
-  st.header("Seja bem vindo ao Data Discovery.")
+  cont = st.container()
+
+  cont.header("Seja bem vindo ao Data Discovery.")
   
+  ds = Image.open("images/escolha_dataset.png")
+  cont.markdown(introducao1, True)
+  col1, col2, col3 = cont.columns([1,3,1])
+  col2.image(ds)
 
+  cont.markdown(introducao2, True)
+  vr = Image.open("images/escolha_variavel.png")
+  col1, col2, col3 = cont.columns([1,3,1])
+  col2.image(vr)
 
+  cont.markdown(introducao3, True)
+  col1, col2, col3 = cont.columns([1,3,1])
+  cm = Image.open("images/escolha_comparacao.png")
+  col2.image(cm)
 
-
-
-
-
-
+  cont.markdown(introducao4, True)
 
 
 
@@ -48,7 +58,7 @@ elif page == 'Data Quality':
   ## SIDEBAR ##
   st.sidebar.markdown("# Datasets")
 
-  selected_dataset = st.sidebar.selectbox("Selectione seu dataset", lista_datasets)
+  selected_dataset = st.sidebar.selectbox("Selecione seu dataset", lista_datasets)
   st.sidebar.markdown("# Selecione os tipos de variaveis: ")
 
   categorical_check = st.sidebar.checkbox("Categóricas")

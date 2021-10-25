@@ -34,3 +34,73 @@ exp = """<h4>Comparações de duas variáveis:</h4>
         <br>
         ATENÇÃO: As tabelas de correlação, covariância e o gráfico de dispersão ao final dessa página usam somente informações dos top 10 valores mais presentes em cada uma das variáveis que você está comparando.
         """
+
+introducao1 = """ 
+Este é um projeto que surgiu de uma parceria entre Americanas - SA e o Grupo CiDAMO (Ciência de Dados, Aprendizagem de Máquina e Otimização).
+
+Essencialmente este projeto tem como intuito a criação de uma ETL completa a partir da base de dados do [Kaggle: Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/olistbr/brazilian-ecommerce).
+
+<h2>Como funciona:</h2>
+
+No lado esquerdo desta página, tem o *Menu inicial*, que será usado para a navegação das páginas desta aplicação. A funcionalidade das páginas seguem explicadas a seguir:
+
+
+<h3>Data Quality</h3>
+
+O Data Quality consiste na essência deste trabalho. No menu lateral, primeiramente selecione o dataset a ser analisado a partir da lista dos datasets disponibilizados. Escolhido o seu dataset, basta marcar quais os tipo de variáveis que você deseja analisar em tela:
+
+"""
+
+
+introducao2 = """
+
+Escolhido o dataset e os tipos de variáveis, na tela ao lado são exibidas as estatísticas das variáveis deste dataset que correspondem aos tipo selecionado.
+
+Logo abaixo do título com o tipo de variável, tem um quadro com o resumo de todas as variáveis desde tipo no dataset. E logo em seguida, apresentam-se as estatíscas de cada variável em detalhe.
+
+Independente do tipo de variável, sempre serão mostradas o *tamanho* do conjunto de dados (quantidade de linhas), o *tipo* da variável dentro da aplicação e quantidade de *valores nulos*. Em relação aos gráficos, serão mostrados os top 10 valores mais frequentes. Para visualizar os 10 valores menos frequentes, clicar na opção do *Gráficos adicionais* no canto superior a direita do gráfico.
+
+Já para cada tipo de variável, são informadas medidas estatísticas diferentes. No caso de variáveis inteiras, são apresentadas o conjunto de valores únicos. No caso de variáveis de contínuas ou data/hora, são exibidos os quartis, o valor máximo e mínimo.
+"""
+
+
+
+introducao3 = """
+O gráfico ao lado das medidas estatísticas é interativo, isto é, você pode utilizando o scroll dar zoom em diferentes regiões do gráfico. Além disso, é possível clicar, arrastar e deixando o mouse em cima, dar uma descrição mais específica do valor atribuído para a coluna.
+
+Note ainda que existe um check de 'Gráficos adicionais', e marcando ele são apresentadas outros gráficos em relação a esta variável.
+
+<h3>Comparações</h3>
+
+A sessão de comparações tem como intuito observar as informações de duas variáveis distintas simultâneamente, sendo tanto ou do mesmo dataset ou de dois diferentes.
+
+Ao selecionar esta seção, no Menu lateral são disponibilizadas duas caixas seletoras para a escolha dos datasets. Escolhidos estes, em tela são disponibilizados outras duas caixas seletoras para a seleção das respectivas variáveis dos datasets anteriormente selecionado.
+
+Escolhidas as variáveis para cada dataset, são mostradas as informações completas sobre estas (tal como era realizado no Data Quality na sessão anterior) bem como são disponibilizadas algumas informações simples de cruzamento entre os top 10 valores das duas.
+"""
+
+
+
+introducao4 = """
+Tem-se então as tabelas de correlação e covariância entre as duas variáveis selecionadas, e ainda um gráfico que exibe a contagem simultânea dos 10 valores mais frequentes.
+
+
+<h3>Sobre</h3>
+
+Finalmente, na ultima sessão, é possível conhecer mais sobre o grupo CiDAMO e os integrantes do grupo que se envolveram neste projeto.
+
+Navegar nesta sessão e se conectar aos responsáveis pelo projeto no Linkedin faz parte da experiência do Data Discovery! ;)
+"""
+
+
+kally_is = """ 
+Kally Chung é analista de dados e agregada do grupo CiDAMO. Formada em Matemática Aplicada Computacional pela UNICAMP e embora tenha trabalhado por 5 anos na área da Educação na UFPR, há 2 anos tem trabalhado como analista de dados.
+"""
+
+rogerio_is = """ 
+Rogerio Mainardes ingressou no grupo CiDAMO em 2020. Formado em Matemática pela UFPR, além de professor de Matemática de nível Ensino Médio também atua no mercado como Cientista de Dados. 
+"""
+
+leonel_is = """ 
+Leonel é um estudante de Engenharia Mecânica com gosto particular por processos, dados e qualidade que atualmente atua como desenvolvedor backend.
+"""
