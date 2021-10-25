@@ -254,7 +254,8 @@ def column_describer(js, tipagem, indice, coluna, col, style_div, style_p, title
 def request_dataset(lista_datasets, qual_dataset, title):
   st.sidebar.markdown(f"# {title}")
   dataset = st.sidebar.selectbox(f"{qual_dataset}:", lista_datasets)
-  url = f"http://localhost/api/v1/summaries/{dataset}"
+  base_url = "http://nginx/api/v1/summaries/"
+  url = f"{base_url}/{dataset}"
   r = requests.get(url)
   return r.json()
 

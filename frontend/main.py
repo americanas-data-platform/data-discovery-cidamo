@@ -10,13 +10,14 @@ from pages.about import about
 st.set_page_config( 
     page_title = 'Data Quality',
     page_icon = '✅',
-    layout = 'wide'
-)
+    layout = 'wide')
 
 # Coletando o nome de todos os datasets
-url = "http://localhost/api/v1/summaries/"
-req = requests.get(url)
+base_url = "http://nginx/api/v1/summaries"
+req = requests.get(base_url)
 json_data = req.json()
+
+print(req)
 
 lista_datasets = []
 for k in range(len(json_data)):
@@ -57,7 +58,7 @@ elif page == 'Data Quality':
   datetime_check = st.sidebar.checkbox("Data/Hora")
   boolean_check = st.sidebar.checkbox("Booleanas")
   
-  url = f"http://localhost/api/v1/summaries/{selected_dataset}"
+  url = f"{base_url}/{selected_dataset}"
 
   home(url, categorical_check, discrete_check, continuous_check, datetime_check, boolean_check, style_div, style_div3, style_div7, style_h1_2, style_h1_3, style_p)
 

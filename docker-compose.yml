@@ -25,6 +25,21 @@ services:
     networks:
       - nginx_network
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/usr/src
+    ports:
+      - 8501:8501
+    deploy:
+      replicas: 1
+    depends_on:
+      - mongo
+    networks:
+      - nginx_network
+
   nginx:
     image: nginx:1.15-alpine
     restart: unless-stopped
@@ -42,3 +57,4 @@ services:
 networks:
   nginx_network:
     driver: bridge
+
