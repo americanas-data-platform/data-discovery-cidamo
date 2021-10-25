@@ -29,16 +29,10 @@ st.sidebar.markdown("# Menu inicial")
 page = st.sidebar.radio("Selecione a página",["Introdução", "Data Quality", "Comparações", "Sobre"])
 
 
-
 if page == "Introdução":
-  st.header("Seja bem vindo ao Data Quality.")
+  st.header("Seja bem vindo ao Data Discovery.")
   
-  st.subheader("Projeto fruto de uma parceria Americanas - SA com CiDAMO.")
 
-  col1, col2 = st.columns([1,1])
-  col1.write("Aqui vai uma imagem")
-
-  col2.write("Aqui vai outra imagem")
 
 
 
@@ -61,10 +55,11 @@ elif page == 'Data Quality':
   discrete_check = st.sidebar.checkbox("Discretas")
   continuous_check = st.sidebar.checkbox("Contínuas")
   datetime_check = st.sidebar.checkbox("Data/Hora")
+  boolean_check = st.sidebar.checkbox("Booleanas")
   
   url = f"http://localhost/api/v1/summaries/{selected_dataset}"
 
-  home(url, categorical_check, discrete_check, continuous_check, datetime_check, style_div, style_div3, style_div7, style_h1_2, style_h1_3, style_p)
+  home(url, categorical_check, discrete_check, continuous_check, datetime_check, boolean_check, style_div, style_div3, style_div7, style_h1_2, style_h1_3, style_p)
 
 
 elif page == 'Comparações':
@@ -88,7 +83,7 @@ elif page == 'Comparações':
 elif page == "Sobre":
 
 
-  st.header("Sobre o projeto")
+  st.header("Sobre o projeto:")
 
   image = Image.open("images/cidamo.jpg")
 

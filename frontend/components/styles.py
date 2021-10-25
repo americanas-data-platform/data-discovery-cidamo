@@ -28,9 +28,9 @@ instagram = "https://www.instagram.com/grupo.cidamo/"
 github = "https://github.com/CiDAMO"
 youtube = "https://www.youtube.com/channel/UCiVFjGGCh63QZ3-kswfQdRw"
 
-exp = """<h4>Comparações entre variáveis:</h4>
-        Nesta sessão é possível realizar comparações entre as de duas tabelas. Basta selecionar os datasets no menu ao lado e em seguida selecionar quais as respectivas colunas no seletor a baixo.
+exp = """<h4>Comparações de duas variáveis:</h4>
+        Nesta sessão é possível fazer comparações entre as variaveis de duas tabelas que você selecionar para isso, selecione os datasets no menu do lado esquerdo, e em seguida selecione também quais as variáveis que você deseja comparar nos seletores abaixo.
         <br>
         <br>
-        Atenção ao fato de que, as tabelas de correlação, covariância e no gráfico de dispersão, são utilizadas somente os 10 valores mais presentes em cada uma das colunas.
+        ATENÇÃO: As tabelas de correlação, covariância e o gráfico de dispersão ao final dessa página usam somente informações dos top 10 valores mais presentes em cada uma das variáveis que você está comparando.
         """
