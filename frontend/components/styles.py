@@ -60,7 +60,7 @@ Logo abaixo do título com o tipo de variável, tem um quadro com o resumo de to
 
 Independente do tipo de variável, sempre serão mostradas o *tamanho* do conjunto de dados (quantidade de linhas), o *tipo* da variável dentro da aplicação e quantidade de *valores nulos*. Em relação aos gráficos, serão mostrados os top 10 valores mais frequentes. Para visualizar os 10 valores menos frequentes, clicar na opção do *Gráficos adicionais* no canto superior a direita do gráfico.
 
-Já para cada tipo de variável, são informadas medidas estatísticas diferentes. No caso de variáveis inteiras, são apresentadas o conjunto de valores únicos. No caso de variáveis de contínuas ou data/hora, são exibidos os quartis, o valor máximo e mínimo.
+Já para cada tipo de variável, são informadas medidas estatísticas diferentes. No caso de variáveis de contínuas ou data/hora, são exibidos os quartis, o valor máximo e mínimo.
 """
 
 
